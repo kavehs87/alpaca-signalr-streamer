@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignalR Client</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.9/signalr.min.js"></script>
+</head>
+<body>
+    <h1>SignalR Client Listening for Ticker Data</h1>
+    <div id="messages"></div>
+
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("http://localhost:5000/tickhub")
+            .build();
+
+        connection.start().then(function () {
+            console.log("Connected to SignalR Hub");
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        connection.on("ReceiveTickerData", function (message) {
+            console.log("Received ticker data:", message);
+            const msgDiv = document.getElementById("messages");
+            const msgElement = document.createElement("div");
+            msgElement.textContent = "Ticker data: " + message;
+            msgDiv.appendChild(msgElement);
+        });
+    </script>
+</body>
+</html>

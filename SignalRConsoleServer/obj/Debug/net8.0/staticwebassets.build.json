@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "1TJct+aycjnVe5wGjSSg+8pvU5O4btPy0Yh9Ac9pn7s=",
+  "Source": "SignalRConsoleServer",
+  "BasePath": "_content/SignalRConsoleServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
